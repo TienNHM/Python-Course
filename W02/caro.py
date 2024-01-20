@@ -90,6 +90,13 @@ def kiem_tra_thang(ban_co: list):
                     return True
     return False
 
+def kiem_tra_hoa(ban_co: list):
+    for hang in ban_co:
+        for o in hang:
+            if o == ' ':
+                return False
+    return True
+
 if __name__ == '__main__':
     # Nhập kích thước bàn cờ, m, n >= 5
     while True:
@@ -109,10 +116,16 @@ if __name__ == '__main__':
         if kiem_tra_thang(ban_co):
             print("Người chơi X thắng!")
             break
+        if kiem_tra_hoa(ban_co):
+            print("Hòa!")
+            break
 
         nhap_gia_tri('O', ban_co)
         in_ban_co(ban_co)
         if kiem_tra_thang(ban_co):
             print("Người chơi O thắng!")
+            break
+        if kiem_tra_hoa(ban_co):
+            print("Hòa!")
             break
 
